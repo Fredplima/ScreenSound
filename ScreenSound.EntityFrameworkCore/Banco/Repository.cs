@@ -1,6 +1,6 @@
-﻿namespace ScreenSound.Banco
+﻿namespace ScreenSound.EntityFrameworkCore.Banco
 {
-    public class Dal<T>(ScreenSoundContext context) where T : class
+    public class Repository<T>(ScreenSoundContext context) where T : class
     {
         protected readonly ScreenSoundContext context = context;
 
@@ -9,19 +9,19 @@
             return [.. context.Set<T>()];
         }
 
-        public  void Adicionar(T objeto)
+        public void Adicionar(T objeto)
         {
             context.Set<T>().Add(objeto);
             context.SaveChanges();
         }
 
-        public  void Atualizar(T objeto)
+        public void Atualizar(T objeto)
         {
             context.Set<T>().Update(objeto);
             context.SaveChanges();
         }
 
-        public  void Deletar(T objeto)
+        public void Deletar(T objeto)
         {
             context.Set<T>().Remove(objeto);
             context.SaveChanges();

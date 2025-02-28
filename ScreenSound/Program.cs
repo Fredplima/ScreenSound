@@ -1,10 +1,10 @@
-﻿using ScreenSound.Banco;
+﻿using ScreenSound.Core.Modelos;
+using ScreenSound.EntityFrameworkCore.Banco;
 using ScreenSound.Menus;
-using ScreenSound.Modelos;
 
 var context = new ScreenSoundContext();
-var artistaDal = new Dal<Artista>(context);
-var musicaDal = new Dal<Musica>(context);
+var artistaDal = new Repository<Artista>(context);
+var musicaDal = new Repository<Musica>(context);
 
 Dictionary<int, Menu> opcoes = new()
 {

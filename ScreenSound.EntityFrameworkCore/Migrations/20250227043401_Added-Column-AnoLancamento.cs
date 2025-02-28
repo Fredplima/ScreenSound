@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace ScreenSound.Migrations
+namespace ScreenSound.EntityFrameworkCore.Migrations
 {
     /// <inheritdoc />
     public partial class AddedColumnAnoLancamento : Migration
