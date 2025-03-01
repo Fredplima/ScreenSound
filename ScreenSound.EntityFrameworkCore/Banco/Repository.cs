@@ -1,4 +1,6 @@
-﻿namespace ScreenSound.EntityFrameworkCore.Banco
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace ScreenSound.EntityFrameworkCore.Banco
 {
     public class Repository<T>(ScreenSoundContext context) where T : class
     {
@@ -28,8 +30,8 @@
         }
 
         public T? RecuperarPor(Func<T, bool> condicao)
-        {
-            return context.Set<T>().FirstOrDefault(condicao);
+        {            
+            return context.Set<T>().Where(condicao).FirstOrDefault();
         }
 
         public ICollection<T>? RecuperarTodosPor(Func<T, bool> condicao)

@@ -1,6 +1,6 @@
 ﻿namespace ScreenSound.Core.Modelos;
 
-public class Musica(string nome)
+public class Musica(string nome) : IEntity
 {
     public int Id { get; set; }
     public string Nome { get; set; } = nome;

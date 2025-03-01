@@ -14,7 +14,7 @@ namespace ScreenSound.EntityFrameworkCore.Banco
         {
             optionsBuilder
                 .UseSqlServer(connectionString)
-                .UseLazyLoadingProxies();
+                .UseLazyLoadingProxies(false);
         }
 
     }
