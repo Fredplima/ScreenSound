@@ -1,5 +1,7 @@
-﻿using ScreenSound.Core.Modelos;
+﻿using ScreenSound.Core.Artistas;
+using ScreenSound.Core.Modelos;
 using ScreenSound.EntityFrameworkCore.Banco;
+using ScreenSound.EntityFrameworkCore.Repositories;
 using ScreenSound.Menus;
 
 var context = new ScreenSoundContext();

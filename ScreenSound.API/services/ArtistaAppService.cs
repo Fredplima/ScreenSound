@@ -1,5 +1,6 @@
-﻿using ScreenSound.Core.Modelos;
-using ScreenSound.EntityFrameworkCore.Banco;
+﻿using ScreenSound.Core.Artistas;
+using ScreenSound.Core.Modelos;
+using ScreenSound.EntityFrameworkCore.Repositories;
 
 namespace ScreenSound.Web.Host.services
 {
@@ -29,5 +30,6 @@ namespace ScreenSound.Web.Host.services
 
             return Results.Ok(artista);
         }
+        
     }
 }

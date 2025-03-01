@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ScreenSound.Core.Artistas;
 using ScreenSound.Core.Modelos;
 
 namespace ScreenSound.EntityFrameworkCore.Banco

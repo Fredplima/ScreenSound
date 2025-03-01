@@ -1,6 +1,8 @@
-﻿namespace ScreenSound.Core.Modelos;
+﻿using ScreenSound.Core.Modelos;
 
-public class Artista(string nome, string bio): IEntity
+namespace ScreenSound.Core.Artistas;
+
+public class Artista(string nome, string bio) : IEntity
 {
     public int Id { get; set; }
     public string Nome { get; set; } = nome;

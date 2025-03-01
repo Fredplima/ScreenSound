@@ -1,10 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ScreenSound.Core.Modelos;
+using ScreenSound.Core.Repositories;
+using ScreenSound.EntityFrameworkCore.Banco;
 
-namespace ScreenSound.EntityFrameworkCore.Banco
+namespace ScreenSound.EntityFrameworkCore.Repositories
 {
-    public class Repository<T>(ScreenSoundContext context) where T : class
+    public class Repository<T> : IRepository<T> where T : class, IEntity
     {
-        protected readonly ScreenSoundContext context = context;
+        protected readonly ScreenSoundContext context;
+
+        public Repository(ScreenSoundContext context)
+        {
+            this.context = context;
+        }
+
+        public T? Get(int id)
+        {
+            return context.Set<T>().Find(id);            
+        }
 
         public IEnumerable<T> Listar()
         {
@@ -30,7 +42,7 @@ namespace ScreenSound.EntityFrameworkCore.Banco
         }
 
         public T? RecuperarPor(Func<T, bool> condicao)
-        {            
+        {
             return context.Set<T>().Where(condicao).FirstOrDefault();
         }
 
@@ -38,5 +50,6 @@ namespace ScreenSound.EntityFrameworkCore.Banco
         {
             return context.Set<T>().Where(condicao).ToList();
         }
+
     }
 }

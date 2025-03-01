@@ -1,5 +1,6 @@
-﻿using ScreenSound.Core.Modelos;
-using ScreenSound.EntityFrameworkCore.Banco;
+﻿using ScreenSound.Core.Artistas;
+using ScreenSound.Core.Modelos;
+using ScreenSound.EntityFrameworkCore.Repositories;
 
 namespace ScreenSound.Menus
 {

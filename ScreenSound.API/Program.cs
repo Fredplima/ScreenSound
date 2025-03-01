@@ -1,7 +1,8 @@
-
-using Microsoft.AspNetCore.Mvc;
+using ScreenSound.Core.Artistas;
 using ScreenSound.Core.Modelos;
 using ScreenSound.EntityFrameworkCore.Banco;
+using ScreenSound.EntityFrameworkCore.Repositories;
+using ScreenSound.Web.Host.Endpoints;
 using ScreenSound.Web.Host.services;
 using System.Text.Json.Serialization;
 
@@ -18,6 +19,9 @@ builder.Services.AddTransient<AppServiceBase<Musica>>();
 
 builder.Services.AddTransient<ArtistaAppService>();
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 // Desabilita a serialização de referências cíclicas
 builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
 options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
@@ -25,66 +29,15 @@ options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 var app = builder.Build();
 
 
-// Artistas Services
-app.MapGet("/Artistas", ([FromServices] ArtistaAppService artistaAppService) =>
-{
-    return artistaAppService.Listar();
-});
+// Endpoint
+app.AddArtistasEndpoints();
+app.AddMusicasEndpoints();
 
-app.MapGet("/Artistas/{nome}", ([FromServices] ArtistaAppService artistaAppService, string nome) =>
+// Swagger
+app.UseSwagger();
+app.UseSwaggerUI(c =>
 {
-    return artistaAppService.RecuperarArtistaComMusicas(nome);
-});
-
-app.MapPost("/Artistas", ([FromServices] ArtistaAppService artistaAppService, [FromBody] Artista artista) =>
-{
-    return artistaAppService.Adicionar(artista);
-});
-
-app.MapDelete("/Artistas/{id}", ([FromServices] ArtistaAppService artistaAppService, int id) =>
-{
-    return artistaAppService.Deletar(id);
-});
-
-app.MapPut("/Artistas", ([FromServices] ArtistaAppService artistaAppService, [FromBody] Artista artista) =>
-{
-    return artistaAppService.Atualizar(artista, a =>
-    {
-        a.Nome = artista.Nome;
-        a.Bio = artista.Bio;
-        a.FotoPerfil = artista.FotoPerfil;
-    });
-});
-
-// Musicas Services
-app.MapGet("/Musicas", ([FromServices] AppServiceBase<Musica> musicaAppService) =>
-{
-    return musicaAppService.Listar();
-});
-
-app.MapGet("/Musicas/{nome}", ([FromServices] AppServiceBase<Musica> musicaAppService, string nome) =>
-{
-    return musicaAppService.RecuperarPor(x=> x.Nome.ToLower().Equals(nome.ToLower().Trim()));
-});
-
-app.MapPost("/Musicas", ([FromServices] AppServiceBase<Musica> musicaAppService, [FromBody] Musica musica) =>
-{
-    return musicaAppService.Adicionar(musica);
-});
-
-app.MapDelete("/Musicas/{id}", ([FromServices] AppServiceBase<Musica> musicaAppService, int id) =>
-{
-    return musicaAppService.Deletar(id);
-});
-
-app.MapPut("/Musicas", ([FromServices] AppServiceBase<Musica> musicaAppService, [FromBody] Musica musica) =>
-{
-    return musicaAppService.Atualizar(musica, a =>
-    {
-        a.Nome = musica.Nome;
-        a.AnoLancamento = musica.AnoLancamento;
-        a.ArtistaId = musica.ArtistaId;        
-    });
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "ScreenSound API");
 });
 
 app.Run();

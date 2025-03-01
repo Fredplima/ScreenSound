@@ -1,5 +1,5 @@
 ﻿using ScreenSound.Core.Modelos;
-using ScreenSound.EntityFrameworkCore.Banco;
+using ScreenSound.EntityFrameworkCore.Repositories;
 using System.Linq.Expressions;
 
 namespace ScreenSound.Web.Host.services
