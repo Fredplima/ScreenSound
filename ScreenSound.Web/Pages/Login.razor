@@ -1,0 +1,59 @@
+﻿@page "/login"
+@using Microsoft.AspNetCore.Components.Authorization
+@using ScreenSound.Web.Services.Authorization
+@using ScreenSound.Web.Services.Authorization.Requests
+@inject AuthAPI authAPI
+@attribute [AllowAnonymous]
+@inject NavigationManager Navigation
+
+<AuthorizeView>
+	<Authorized>
+		<p>Você está conectado como @context.User.Identity.Name </p>
+	</Authorized>
+	<NotAuthorized>
+		<MudForm Model="@loginRequest" @bind-IsValid="@success" @ref="form" PreventDefault="true">
+			<DataAnnotationsValidator />
+			<MudCard Style="max-width: 400px; margin: auto;">
+				<MudCardMedia Image="images/login_bann.jpg" />
+				<MudCardContent>
+					<MudTextField Label="Login" HelperText="Informe seu login" @bind-Value="loginRequest.Email"
+								  Immediate="true"
+								  For="@(() => loginRequest.Email)" />
+					<MudTextField Label="Password" HelperText="Informe sua senha" @bind-Value="loginRequest.Senha"
+								  Immediate="true"
+								  For="@(() => loginRequest.Senha)" InputType="InputType.Password" />
+				</MudCardContent>
+				<MudCardActions>
+					<MudButton ButtonType="ButtonType.Button"
+							   Variant="Variant.Filled"
+							   Color="Color.Primary"
+							   @onclick="OnValidSubmit"
+							   Class="demo-form-button">Login</MudButton>
+				</MudCardActions>
+			</MudCard>
+		</MudForm>
+	</NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+	bool success;
+	MudForm form;
+	private LoginRequest loginRequest = new();
+
+	[SupplyParameterFromQuery]
+	public string? ReturnUrl { get; set; }
+
+	private async Task OnValidSubmit()
+	{
+		var resposta = await authAPI.LoginAsync(loginRequest);
+		if (resposta.Sucesso)
+		{
+			if (ReturnUrl is not null)
+				Navigation.NavigateTo(ReturnUrl);
+		}
+	}
+
+
+
+}

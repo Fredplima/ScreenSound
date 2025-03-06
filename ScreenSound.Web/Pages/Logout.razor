@@ -1,0 +1,14 @@
+﻿@page "/logout"
+@using ScreenSound.Web.Services.Authorization
+@inject AuthAPI AuthAPI
+@attribute [AllowAnonymous]
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (await AuthAPI.VerificaAutenticado())
+            await AuthAPI.LogoutAsync();
+        await base.OnInitializedAsync();
+    }
+}
