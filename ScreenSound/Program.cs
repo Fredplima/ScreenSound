@@ -1,9 +1,10 @@
-﻿using ScreenSound.Menus;
-using ScreenSound.Modelos;
+﻿using ScreenSound.Core.Artistas;
+using ScreenSound.Menus;
 using ScreenSound.Shared.Dados.Banco;
 
 var context = new ScreenSoundContext();
-var artistaDAL = new Repository<Artista>(context);
+var artistaRepository = new Repository<Artista>(context);
+var musicaRepository = new Repository<Artista>(context);
 
 Dictionary<int, Menu> opcoes = new();
 opcoes.Add(1, new MenuRegistrarArtista());
@@ -43,7 +44,7 @@ void ExibirOpcoesDoMenu()
     if (opcoes.ContainsKey(opcaoEscolhidaNumerica))
     {
         Menu menuASerExibido = opcoes[opcaoEscolhidaNumerica];
-        menuASerExibido.Executar(artistaDAL);
+        menuASerExibido.Executar(artistaRepository);
         if (opcaoEscolhidaNumerica > 0) ExibirOpcoesDoMenu();
     } 
     else

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ScreenSound.Core.Musicas;
 using ScreenSound.Shared.API.Generos.Dtos;
 using ScreenSound.Shared.Dados.Banco;
-using ScreenSound.Shared.Modelos.Modelos;
 
 namespace ScreenSound.API.Endpoints;
 

@@ -26,6 +26,11 @@ public class Repository<T>(ScreenSoundContext context) where T : class
         return context.Set<T>().FirstOrDefault(condicao);
     }
 
+    public ICollection<T>? RecuperarTodosPor(Func<T, bool> condicao)
+    {
+        return [.. context.Set<T>().Where(condicao)];
+    }
+
     public IQueryable<T> GetAll()
     {
         return context.Set<T>();

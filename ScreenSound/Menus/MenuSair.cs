@@ -1,11 +1,8 @@
-﻿using ScreenSound.Modelos;
-using ScreenSound.Shared.Dados.Banco;
-
-namespace ScreenSound.Menus;
+﻿namespace ScreenSound.Menus;
 
 internal class MenuSair : Menu
 {
-    public override void Executar(Repository<Artista> artistaDAL)
+    public override void Executar()
     {
         Console.WriteLine("Tchau tchau :)");
     }

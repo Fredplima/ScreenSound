@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ScreenSound.Modelos;
+using ScreenSound.Core.Artistas;
+using ScreenSound.Core.Authorizations;
 using ScreenSound.Shared.API.Artistas.Dtos;
 using ScreenSound.Shared.API.Musicas.Dtos;
 using ScreenSound.Shared.Dados.Banco;
-using ScreenSound.Shared.Dados.Modelos;
 using System.Security.Claims;
 
 namespace ScreenSound.API.Endpoints;

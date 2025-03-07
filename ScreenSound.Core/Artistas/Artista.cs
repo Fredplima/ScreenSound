@@ -1,4 +1,6 @@
-﻿namespace ScreenSound.Modelos; 
+﻿using ScreenSound.Core.Musicas;
+
+namespace ScreenSound.Core.Artistas;
 
 public class Artista(string nome, string bio)
 {
@@ -27,7 +29,7 @@ public class Artista(string nome, string bio)
     public void AdicionarNota(int pessoaId, int nota)
     {
         nota = Math.Clamp(nota, 1, 5);
-        Avaliacoes.Add(new AvaliacaoArtista() { ArtistaId = this.Id, PessoaId = pessoaId, Nota = nota });
+        Avaliacoes.Add(new AvaliacaoArtista() { ArtistaId = Id, PessoaId = pessoaId, Nota = nota });
     }
 
     public override string ToString()

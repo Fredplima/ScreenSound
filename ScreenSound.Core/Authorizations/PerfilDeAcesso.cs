@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace ScreenSound.Shared.Dados.Modelos
+namespace ScreenSound.Core.Authorizations
 {
     public class PerfilDeAcesso : IdentityRole<int>
     {

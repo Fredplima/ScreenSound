@@ -1,4 +1,4 @@
-﻿namespace ScreenSound.Modelos;
+﻿namespace ScreenSound.Core.Artistas;
 
 public class AvaliacaoArtista
 {

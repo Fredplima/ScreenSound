@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ScreenSound.Modelos;
-using ScreenSound.Shared.Dados.Modelos;
-using ScreenSound.Shared.Modelos.Modelos;
+using ScreenSound.Core.Authorizations;
+using ScreenSound.Core.Artistas;
+using ScreenSound.Core.Musicas;
 
 namespace ScreenSound.Shared.Dados.Banco;
 public class ScreenSoundContext : IdentityDbContext<PessoaComAcesso, PerfilDeAcesso, int>
@@ -45,8 +45,7 @@ public class ScreenSoundContext : IdentityDbContext<PessoaComAcesso, PerfilDeAce
             .WithMany(c => c.Musicas);
 
         modelBuilder.Entity<AvaliacaoArtista>()
-           .HasKey(a => new { a.ArtistaId, a.PessoaId });
-        
+           .HasKey(a => new { a.ArtistaId, a.PessoaId });        
 
     }
 

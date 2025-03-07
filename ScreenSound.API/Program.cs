@@ -2,10 +2,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScreenSound.API.Endpoints;
-using ScreenSound.Modelos;
+using ScreenSound.Core.Artistas;
+using ScreenSound.Core.Authorizations;
+using ScreenSound.Core.Musicas;
 using ScreenSound.Shared.Dados.Banco;
-using ScreenSound.Shared.Dados.Modelos;
-using ScreenSound.Shared.Modelos.Modelos;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);

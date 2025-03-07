@@ -1,4 +1,4 @@
-﻿using ScreenSound.Modelos;
+﻿using ScreenSound.Core.Artistas;
 using ScreenSound.Shared.Dados.Banco;
 
 namespace ScreenSound.Menus;
