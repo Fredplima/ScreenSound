@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenSound.API", "ScreenSo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenSound.Web", "ScreenSound.Web\ScreenSound.Web.csproj", "{DFA84449-AD93-4D53-8DF4-7A51485EE563}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenSound.Shared.API", "ScreenSound.Shared.API\ScreenSound.Shared.API.csproj", "{323157EB-8E59-490A-9C17-279D4DF216C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenSound.Shared.API", "ScreenSound.Shared.API\ScreenSound.Shared.API.csproj", "{323157EB-8E59-490A-9C17-279D4DF216C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenSound.Core", "ScreenSound.Core\ScreenSound.Core.csproj", "{0C0FC0D7-3A4D-4CBA-AA34-5ACC765ED855}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenSound.Core", "ScreenSound.Core\ScreenSound.Core.csproj", "{0C0FC0D7-3A4D-4CBA-AA34-5ACC765ED855}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScreenSound.EntityFrameworkCore", "ScreenSound.EntityFrameworkCore\ScreenSound.EntityFrameworkCore.csproj", "{BB75E94E-DC9B-6E84-1BD0-2080CEC80C0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScreenSound.EntityFrameworkCore", "ScreenSound.EntityFrameworkCore\ScreenSound.EntityFrameworkCore.csproj", "{BB75E94E-DC9B-6E84-1BD0-2080CEC80C0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

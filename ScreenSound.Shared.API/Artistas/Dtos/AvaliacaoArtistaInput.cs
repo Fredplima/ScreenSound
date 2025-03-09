@@ -1,3 +1,2 @@
 ﻿namespace ScreenSound.Shared.API.Artistas.Dtos;
-
-public record AvaliacaoArtistaInput(int ArtistaId, int Nota);
+public record AvaliacaoArtistaInput(int Nota);

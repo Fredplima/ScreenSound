@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ScreenSound.Core.Artistas;
 using ScreenSound.Core.Authorizations;
@@ -96,12 +97,12 @@ public static class ArtistasExtensions
         });
 
 
-        groupBuilder.MapPost("avaliacao", (HttpContext context,
+        groupBuilder.MapPost("{id}/avaliacao", (int id, HttpContext context,
                                            [FromBody] AvaliacaoArtistaInput request,
                                            [FromServices] Repository<Artista> dalArtista,
                                            [FromServices] Repository<PessoaComAcesso> dalPessoa) =>
         {
-            var artista = dalArtista.RecuperarPor(a => a.Id == request.ArtistaId);
+            var artista = dalArtista.RecuperarPor(a => a.Id == id);
             if (artista is null)
             {
                 return Results.NotFound();
